@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Defence System Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0a0f1c;
+    color:white;
+}
+
+header{
+    background:linear-gradient(90deg,#081320,#142850);
+    padding:20px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,255,255,0.2);
+}
+
+header h1{
+    color:#00ffff;
+    letter-spacing:2px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    background:#101827;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#00ffff;
+    color:black;
+}
+
+.hero{
+    height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:url('https://images.unsplash.com/photo-1518306727298-4c17e1bf6942?auto=format&fit=crop&w=1600&q=80') center/cover;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.7);
+    padding:40px;
+    border-radius:15px;
+}
+
+.hero h2{
+    font-size:3rem;
+    color:#00ffff;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.btn{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    background:#00ffff;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.section{
+    padding:60px 40px;
+}
+
+.section-title{
+    text-align:center;
+    color:#00ffff;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#101827;
+    padding:25px;
+    border-radius:10px;
+    transition:0.3s;
+    border:1px solid #00ffff33;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 15px #00ffff;
+}
+
+.card h3{
+    color:#00ffff;
+    margin-bottom:10px;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.panel{
+    background:#101827;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    border:1px solid #00ffff55;
+}
+
+.panel h2{
+    color:#00ffff;
+}
+
+.value{
+    font-size:2rem;
+    margin-top:10px;
+}
+
+footer{
+    background:#081320;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>AIR DEFENCE SYSTEM COMMAND CENTER</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Radar</a>
+    <a href="#">Missile Systems</a>
+    <a href="#">Threat Analysis</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>National Air Defence Shield</h2>
+        <p>Real-Time Threat Detection and Missile Interception System</p>
+        <button class="btn">Launch Dashboard</button>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Defense Capabilities</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Radar Surveillance</h3>
+            <p>360° long-range radar tracking aircraft, drones, and missiles.</p>
+        </div>
+
+        <div class="card">
+            <h3>Missile Interception</h3>
+            <p>Automated target locking and interception technology.</p>
+        </div>
+
+        <div class="card">
+            <h3>Threat Intelligence</h3>
+            <p>AI-powered threat prediction and classification system.</p>
+        </div>
+
+        <div class="card">
+            <h3>Command Control</h3>
+            <p>Centralized command center for military operations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Live Operations Dashboard</h2>
+
+    <div class="dashboard">
+
+        <div class="panel">
+            <h2>Tracked Targets</h2>
+            <div class="value" id="targets">150</div>
+        </div>
+
+        <div class="panel">
+            <h2>Radar Status</h2>
+            <div class="value">ACTIVE</div>
+        </div>
+
+        <div class="panel">
+            <h2>Interceptions</h2>
+            <div class="value" id="intercepts">42</div>
+        </div>
+
+        <div class="panel">
+            <h2>Threat Level</h2>
+            <div class="value" style="color:red;">HIGH</div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">System Overview</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Detection Range</h3>
+            <p>Up to 600 km aerial target monitoring.</p>
+        </div>
+
+        <div class="card">
+            <h3>Response Time</h3>
+            <p>Less than 5 seconds target engagement.</p>
+        </div>
+
+        <div class="card">
+            <h3>Network Security</h3>
+            <p>Military-grade encrypted communications.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Air Defence Command Center | Secure Military Dashboard</p>
+</footer>
+
+<script>
+setInterval(() => {
+    document.getElementById("targets").innerText =
+        Math.floor(Math.random()*100)+100;
+
+    document.getElementById("intercepts").innerText =
+        Math.floor(Math.random()*50)+20;
+},3000);
+</script>
+
+</body>
+</html>
