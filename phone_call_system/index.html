@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Call Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <i class="fa-solid fa-phone-volume"></i>
+        <h2>Call Manager</h2>
+    </div>
+
+    <ul class="menu">
+        <li class="active">
+            <i class="fas fa-chart-line"></i>
+            Dashboard
+        </li>
+
+        <li>
+            <i class="fas fa-phone"></i>
+            Call Logs
+        </li>
+
+        <li>
+            <i class="fas fa-address-book"></i>
+            Contacts
+        </li>
+
+        <li>
+            <i class="fas fa-users"></i>
+            Agents
+        </li>
+
+        <li>
+            <i class="fas fa-file-alt"></i>
+            Reports
+        </li>
+
+        <li>
+            <i class="fas fa-cog"></i>
+            Settings
+        </li>
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <header>
+
+        <div class="header-left">
+            <h1>Phone Call Management Dashboard</h1>
+            <p>Monitor calls, contacts, agents and analytics</p>
+        </div>
+
+        <div class="header-right">
+
+            <input type="text"
+                   id="globalSearch"
+                   placeholder="Search Calls">
+
+            <button id="themeBtn">
+                🌙 Dark Mode
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Statistics -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <div class="icon blue">
+                <i class="fas fa-phone"></i>
+            </div>
+
+            <div class="details">
+                <h3>Total Calls</h3>
+                <h2 id="totalCalls">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="icon green">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <div class="details">
+                <h3>Completed</h3>
+                <h2 id="completedCalls">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="icon red">
+                <i class="fas fa-times-circle"></i>
+            </div>
+
+            <div class="details">
+                <h3>Missed</h3>
+                <h2 id="missedCalls">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="icon orange">
+                <i class="fas fa-spinner"></i>
+            </div>
+
+            <div class="details">
+                <h3>Ongoing</h3>
+                <h2 id="ongoingCalls">0</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Dashboard Area -->
+
+    <section class="dashboard-grid">
+
+        <div class="form-panel">
+
+            <h2>Add New Call</h2>
+
+            <form id="callForm">
+
+                <label>Caller Name</label>
+                <input type="text"
+                       id="callerName"
+                       required>
+
+                <label>Phone Number</label>
+                <input type="text"
+                       id="callerNumber"
+                       required>
+
+                <label>Status</label>
+
+                <select id="callStatus">
+
+                    <option>Completed</option>
+                    <option>Missed</option>
+                    <option>Ongoing</option>
+
+                </select>
+
+                <label>Department</label>
+
+                <select id="department">
+
+                    <option>Sales</option>
+                    <option>Support</option>
+                    <option>Marketing</option>
+                    <option>Technical</option>
+
+                </select>
+
+                <label>Priority</label>
+
+                <select id="priority">
+
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+
+                </select>
+
+                <button type="submit">
+                    Add Call Record
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="analytics-panel">
+
+            <h2>Call Analytics</h2>
+
+            <canvas id="callChart"></canvas>
+
+        </div>
+
+    </section>
+
+    <!-- Call Log Table -->
+
+    <section class="table-section">
+
+        <div class="table-header">
+
+            <h2>Recent Call Logs</h2>
+
+            <div>
+
+                <button id="exportBtn">
+                    Export Data
+                </button>
+
+            </div>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Department</th>
+                <th>Priority</th>
+                <th>Date</th>
+                <th>Actions</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="callTableBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- Contacts Section -->
+
+    <section class="contacts-section">
+
+        <h2>Customer Contacts</h2>
+
+        <div class="contacts-grid">
+
+            <div class="contact-card">
+                <h3>Rahul Sharma</h3>
+                <p>+91 9876543210</p>
+                <span>Premium Customer</span>
+            </div>
+
+            <div class="contact-card">
+                <h3>Ananya Rao</h3>
+                <p>+91 9988776655</p>
+                <span>Regular Customer</span>
+            </div>
+
+            <div class="contact-card">
+                <h3>Vikram Patel</h3>
+                <p>+91 9123456789</p>
+                <span>Business Client</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Agent Section -->
+
+    <section class="agents-section">
+
+        <h2>Support Agents</h2>
+
+        <div class="agent-grid">
+
+            <div class="agent-card">
+                <h3>Agent 01</h3>
+                <p>Sales Department</p>
+                <span class="online">Online</span>
+            </div>
+
+            <div class="agent-card">
+                <h3>Agent 02</h3>
+                <p>Support Department</p>
+                <span class="busy">Busy</span>
+            </div>
+
+            <div class="agent-card">
+                <h3>Agent 03</h3>
+                <p>Technical Team</p>
+                <span class="offline">Offline</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Activity Timeline -->
+
+    <section class="timeline-section">
+
+        <h2>Recent Activity</h2>
+
+        <ul class="timeline">
+
+            <li>
+                New call received from Rahul Sharma
+            </li>
+
+            <li>
+                Agent 01 completed a support call
+            </li>
+
+            <li>
+                Missed call notification generated
+            </li>
+
+            <li>
+                Customer feedback submitted
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- Reports -->
+
+    <section class="report-section">
+
+        <h2>Monthly Performance Report</h2>
+
+        <div class="report-cards">
+
+            <div class="report-card">
+                <h3>Customer Satisfaction</h3>
+                <h1>92%</h1>
+            </div>
+
+            <div class="report-card">
+                <h3>Response Time</h3>
+                <h1>3.2 min</h1>
+            </div>
+
+            <div class="report-card">
+                <h3>Resolved Tickets</h3>
+                <h1>1280</h1>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Settings -->
+
+    <section class="settings-section">
+
+        <h2>System Settings</h2>
+
+        <div class="setting-row">
+
+            <label>Email Notifications</label>
+            <input type="checkbox" checked>
+
+        </div>
+
+        <div class="setting-row">
+
+            <label>SMS Alerts</label>
+            <input type="checkbox" checked>
+
+        </div>
+
+        <div class="setting-row">
+
+            <label>Auto Backup</label>
+            <input type="checkbox">
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
