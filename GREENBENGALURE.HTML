@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Bengaluru Development Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#f4fff4;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#0f9d58,#34a853);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+nav{
+    background:#1b5e20;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    transition:.3s;
+}
+
+nav a:hover{
+    background:#388e3c;
+}
+
+.hero{
+    padding:50px;
+    text-align:center;
+}
+
+.hero button{
+    padding:12px 25px;
+    border:none;
+    background:#2e7d32;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.card h2{
+    color:#2e7d32;
+}
+
+.services{
+    padding:40px;
+}
+
+.services h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.service{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.dashboard{
+    padding:40px;
+}
+
+.dashboard h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.progress{
+    width:100%;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.bar{
+    height:30px;
+    background:#4caf50;
+    width:0;
+    text-align:center;
+    color:white;
+    line-height:30px;
+}
+
+.form-section{
+    padding:40px;
+}
+
+form{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+form input,form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+form button{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:12px;
+    width:100%;
+    cursor:pointer;
+}
+
+.projects{
+    padding:40px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.project{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.project img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.project-content{
+    padding:20px;
+}
+
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+.counter{
+    font-size:2rem;
+    color:#2e7d32;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🌳 GREEN BENGALURU DEVELOPMENT</h1>
+<p>Building a Sustainable and Smart Future for Bengaluru</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Projects</a>
+<a href="#">Dashboard</a>
+<a href="#">Volunteer</a>
+<a href="#">Environment</a>
+<a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+<h2>Smart Green City Initiative</h2>
+<p>Join hands to create a greener Bengaluru through sustainability and innovation.</p>
+<button onclick="joinMission()">Join Green Mission</button>
+</section>
+
+<section class="stats">
+
+<div class="card">
+<h2 class="counter" id="trees">0</h2>
+<p>Trees Planted</p>
+</div>
+
+<div class="card">
+<h2 class="counter" id="water">0</h2>
+<p>Liters Water Saved</p>
+</div>
+
+<div class="card">
+<h2 class="counter" id="volunteers">0</h2>
+<p>Volunteers</p>
+</div>
+
+<div class="card">
+<h2 class="counter" id="carbon">0</h2>
+<p>Tons Carbon Reduced</p>
+</div>
+
+</section>
+
+<section class="services">
+
+<h2>Green Services</h2>
+
+<div class="service-grid">
+
+<div class="service">
+<h3>🌱 Tree Plantation</h3>
+<p>Mass plantation drives across Bengaluru.</p>
+</div>
+
+<div class="service">
+<h3>♻ Waste Management</h3>
+<p>Smart waste collection and recycling programs.</p>
+</div>
+
+<div class="service">
+<h3>💧 Water Conservation</h3>
+<p>Rainwater harvesting and lake restoration.</p>
+</div>
+
+<div class="service">
+<h3>☀ Solar Energy</h3>
+<p>Promoting renewable energy installations.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="dashboard">
+
+<h2>Environmental Progress Dashboard</h2>
+
+<p>Tree Plantation Goal</p>
+<div class="progress">
+<div class="bar" id="treeBar">0%</div>
+</div>
+
+<p>Water Conservation Goal</p>
+<div class="progress">
+<div class="bar" id="waterBar">0%</div>
+</div>
+
+<p>Carbon Reduction Goal</p>
+<div class="progress">
+<div class="bar" id="carbonBar">0%</div>
+</div>
+
+</section>
+
+<section class="projects">
+
+<h2 style="text-align:center;margin-bottom:20px;">Featured Projects</h2>
+
+<div class="project-grid">
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+<div class="project-content">
+<h3>Urban Forest Initiative</h3>
+<p>Developing mini forests across Bengaluru.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+<div class="project-content">
+<h3>Lake Restoration</h3>
+<p>Reviving Bengaluru lakes for future generations.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7">
+<div class="project-content">
+<h3>Solar Smart City</h3>
+<p>Clean energy for sustainable growth.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="form-section">
+
+<h2 style="text-align:center;margin-bottom:20px;">Volunteer Registration</h2>
+
+<form id="volunteerForm">
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<textarea rows="4" placeholder="Why do you want to volunteer?"></textarea>
+
+<button type="submit">Register</button>
+
+</form>
+
+</section>
+
+<footer>
+<h3>Green Bengaluru Development Portal</h3>
+<p>Smart City • Sustainability • Innovation</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+
+function animateCounter(id,target){
+
+let count=0;
+
+let speed=Math.ceil(target/200);
+
+let interval=setInterval(()=>{
+
+count+=speed;
+
+if(count>=target){
+count=target;
+clearInterval(interval);
+}
+
+document.getElementById(id).innerHTML=
+count.toLocaleString();
+
+},10);
+
+}
+
+animateCounter("trees",1500000);
+animateCounter("water",10000000);
+animateCounter("volunteers",50000);
+animateCounter("carbon",250000);
+
+function animateBar(id,target){
+
+let width=0;
+
+let interval=setInterval(()=>{
+
+width++;
+
+document.getElementById(id).style.width=width+"%";
+document.getElementById(id).innerHTML=width+"%";
+
+if(width>=target){
+clearInterval(interval);
+}
+
+},20);
+
+}
+
+animateBar("treeBar",85);
+animateBar("waterBar",72);
+animateBar("carbonBar",90);
+
+function joinMission(){
+alert("Thank you for joining the Green Bengaluru Mission!");
+}
+
+document.getElementById("volunteerForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Registration Successful! Welcome to Green Bengaluru.");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
